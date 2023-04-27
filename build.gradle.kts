@@ -39,7 +39,7 @@ tasks.withType<Jar> {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
+        freeCompilerArgs = listOf("-Xjsr305=strict") // JSR 305: Annotations for Software Defect Detection
         jvmTarget = "17"
     }
 }
