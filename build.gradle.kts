@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib")
+//    implementation("org.jetbrains.kotlin:kotlin-stdlib")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-mustache")
     implementation("org.springframework.boot:spring-boot-starter-web")
@@ -35,13 +35,13 @@ tasks.withType<Jar> {
     manifest {
         attributes["Main-Class"] = "top.abr.demo_spring_kt.DemoSpringKtApplication"
     }
-//    duplicatesStrategy = DuplicatesStrategy.EXCLUDE // To avoid the duplicate handling strategy error
-//    // To add all the dependencies
-//    from(sourceSets.main.get().output)
-//    dependsOn(configurations.runtimeClasspath)
-//    from({
-//             configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
-//         })
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE // To avoid the duplicate handling strategy error
+    // To add all the dependencies
+    from(sourceSets.main.get().output)
+    dependsOn(configurations.runtimeClasspath)
+    from({
+             configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
+         })
 }
 
 tasks.withType<KotlinCompile> {
