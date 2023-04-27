@@ -8,12 +8,14 @@ import org.springframework.web.bind.annotation.RestController
 @SpringBootApplication
 @RestController
 class DemoSpringKtApplication {
+    companion object{
+        @JvmStatic fun main(args: Array<String>) {
+            runApplication<DemoSpringKtApplication>(*args)
+        }
+    }
     @GetMapping("/")
     fun hello(): String {
         return "Hello, world!"
     }
 }
 
-fun main(args: Array<String>) {
-    runApplication<DemoSpringKtApplication>(*args)
-}
