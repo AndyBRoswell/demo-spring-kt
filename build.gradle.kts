@@ -24,6 +24,12 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
+tasks.withType<Jar> {
+    manifest {
+        attributes["Main-Class"] = "top.abr.demo_spring_kt.DemoSpringKtApplicationKt"
+    }
+}
+
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
