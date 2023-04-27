@@ -33,7 +33,7 @@ dependencies {
 
 tasks.withType<Jar> {
     manifest {
-        attributes["Main-Class"] = "top.abr.demo_spring_kt.DemoSpringKtApplicationKt"
+        attributes["Main-Class"] = "top.abr.demo_spring_kt.DemoSpringKtApplication"
     }
 //    duplicatesStrategy = DuplicatesStrategy.EXCLUDE // To avoid the duplicate handling strategy error
 //    // To add all the dependencies
