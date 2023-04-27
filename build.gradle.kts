@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     war
-//    id("java")
+    id("java")
     id("org.springframework.boot") version "3.0.6"
     id("io.spring.dependency-management") version "1.1.0"
     kotlin("jvm") version "1.8.21"
@@ -35,13 +35,13 @@ tasks.withType<Jar> {
     manifest {
         attributes["Main-Class"] = "top.abr.demo_spring_kt.DemoSpringKtApplication"
     }
-//    duplicatesStrategy = DuplicatesStrategy.EXCLUDE // To avoid the duplicate handling strategy error
-//    // To add all the dependencies
-//    from(sourceSets.main.get().output)
-//    dependsOn(configurations.runtimeClasspath)
-//    from({
-//             configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
-//         })
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE // To avoid the duplicate handling strategy error
+    // To add all the dependencies
+    from(sourceSets.main.get().output)
+    dependsOn(configurations.runtimeClasspath)
+    from({
+             configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
+         })
 }
 
 tasks.withType<KotlinCompile> {
